@@ -10,7 +10,6 @@
     "gatsby-plugin-manifest": "^2.2.39",
     "gatsby-plugin-offline": "^3.0.32",
     "gatsby-plugin-react-helmet": "^3.1.21",
-    "gatsby-plugin-react-redux": "^1.1.0-0",
     "gatsby-plugin-sass": "^2.1.29",
     "gatsby-plugin-sharp": "^2.4.3",
     "gatsby-source-filesystem": "^2.1.46",
@@ -23,6 +22,7 @@
     "react-helmet": "^5.2.1",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {

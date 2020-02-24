@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux';
-import nightMode from './nightMode';
+import { combineReducers } from "redux"
+import darkMode from "./darkMode"
 
 export default combineReducers({
-  todos
+  darkMode,
 })
