@@ -1,30 +1,34 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 
 const Nav = () => {
+  const navItems = useStaticQuery(graphql`
+    query navItemsQuery {
+      site {
+        siteMetadata {
+          navLinks {
+            name
+            link
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <nav className="nav">
       <ul className="nav__list">
-        <div className="nav__item">
-          <Link to="" className="nav__link">
-            Frontend
-          </Link>
-        </div>
-        <div className="nav__item">
-          <Link to="" className="nav__link">
-            ReactJS
-          </Link>
-        </div>
-        <div className="nav__item">
-          <Link to="" className="nav__link">
-            HTML5
-          </Link>
-        </div>
-        <div className="nav__item">
-          <Link to="" className="nav__link">
-            Life
-          </Link>
-        </div>
+        {navItems.site.siteMetadata.navLinks.map(({ name, link }) => (
+          <div key={name} className="nav__item">
+            <Link
+              to={link}
+              className="nav__link"
+              activeClassName="nav__link--active"
+            >
+              {name}
+            </Link>
+          </div>
+        ))}
       </ul>
     </nav>
   )

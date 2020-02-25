@@ -1,7 +1,6 @@
 .nav {
   margin-top: 10rem;
   &__list {
-
   }
   &__item {
     margin-bottom: 1rem;
@@ -11,6 +10,9 @@
     font-size: 2.2rem;
     transition: color linear 0.3s;
     &:hover {
+      color: $orange;
+    }
+    &--active {
       color: $orange;
     }
   }
