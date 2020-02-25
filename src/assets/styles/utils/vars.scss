@@ -1,0 +1,32 @@
+// Colors
+$white: #ffffff;
+$black: #00000A;
+$darkBlue: #003466;
+$midnightGreen: #00595B;
+$orange: #E0761F;
+$shamrock: #14985D;
+$gray: #EAEAEA;
+
+$breakpoints: (
+  "phone": 400px,
+  "phone-wide": 480px,
+  "phablet": 560px,
+  "tablet-small": 640px,
+  "tablet": 768px,
+  "tablet-wide": 1024px,
+  "desktop": 1248px,
+  "desktop-wide": 1440px
+);
+
+$content-size: 1024px;
+$desktop-wide: 1440px;
+$desktop: 1248px;
+$tablet-wide: 1024px;
+$tablet: 768px;
+$phablet: 560px;
+$phone-wide: 480px;
+$phone: 400px;
+$phone-small: 375px;
+
+// Fonts
+$baseFont: "OpenSans";

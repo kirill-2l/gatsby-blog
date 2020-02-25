@@ -1,15 +1,12 @@
 import { Link } from "gatsby"
 import React from "react"
-import './Sidebar.scss';
-
-
-
+import Nav from '../Nav';
 
 const Sidebar = ({ siteTitle }) => (
-  <aside>
-    <Link to="/">Logo</Link>
+  <aside className="sidebar">
+    <Link to="/" className="logo">Logo</Link>
+    <Nav />
   </aside>
 )
-
 
 export default Sidebar

@@ -7,31 +7,17 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import "../../assets/styles/styles.scss"
 
 import Sidebar from "../Sidebar"
 import Content from "../Content"
-import "./../layout.css"
 
 const Layout = ({ children }) => {
+  console.log(children)
   return (
     <div className="app">
       <Sidebar />
-      <Content></Content>
-      <div>{children}</div>
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+      <Content>{children}</Content>
     </div>
   )
 }

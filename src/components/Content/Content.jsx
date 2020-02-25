@@ -2,9 +2,9 @@ import React from 'react'
 
 
 
-const Content = () => {
+const Content = ({children}) => {
   return (
-    <main className="main"></main>
+  <main className="main">{children}</main>
   )
 }
 

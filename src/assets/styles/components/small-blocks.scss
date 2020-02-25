@@ -1,0 +1,9 @@
+.logo {
+  font-size: 2.6rem;
+  font-weight: 600;
+  color: $white;
+  transition: color linear 0.3s;
+  &:hover {
+    color: darken($color: $white, $amount: 15);
+  }
+}
