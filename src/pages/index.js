@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
 
@@ -7,8 +7,7 @@ import { connect } from "react-redux"
 import { toggleDarkmode } from "../state/actions/darkMode"
 import "../assets/styles/styles.scss"
 
-
-const IndexPage = ({ toggleDarkmode, isDarkMode }) => {
+const IndexPage = ({ toggleDarkmode, isDarkMode, data }) => {
   return (
     <Layout>
       <SEO title="Home" />
@@ -18,13 +17,35 @@ const IndexPage = ({ toggleDarkmode, isDarkMode }) => {
       <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
         <button onClick={() => toggleDarkmode(isDarkMode)}>toggle</button>
       </div>
+      {data.allWordpressPost.edges.map(({ node }) => (
+        <div className="item" key={node.id}>
+          {node.title}
+        </div>
+      ))}
       <Link to="/page-2/">Go to page 2</Link>
     </Layout>
   )
 }
 
-
 const mapStateToProps = ({ darkMode }) => ({ isDarkMode: darkMode.isDarkMode })
 const mapDispatchToProps = { toggleDarkmode }
 
 export default connect(mapStateToProps, mapDispatchToProps)(IndexPage)
+export const postsQuery = graphql`
+  query postsList {
+    allWordpressPost {
+      edges {
+        node {
+          id
+          slug
+          excerpt
+          content
+          title
+          categories {
+            slug
+          }
+        }
+      }
+    }
+  }
+`

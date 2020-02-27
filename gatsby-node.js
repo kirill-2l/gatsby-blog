@@ -1,58 +1,39 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
-
-// You can delete this file if you're not using it
 const path = require(`path`)
-
-exports.createPages = async ({ graphql, actions, reporter }) => {
+const { slash } = require(`gatsby-core-utils`)
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const LastPosts = path.resolve("./src/templates/index.js")
-  // const PageTemplate = path.resolve("./src/templates/Page.js")
+  // query content for WordPress posts
   const result = await graphql(`
-    {
+    query {
       allWordpressPost {
         edges {
           node {
+            id
             slug
-            wordpress_id
-          }
-        }
-      }
-      allWordpressPage {
-        edges {
-          node {
-            slug
-            wordpress_id
+            excerpt
+            content
+            title
+            categories {
+              slug
+            }
           }
         }
       }
     }
   `)
-  if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
-    return
-  }
-  const BlogPosts = result.data.allWordpressPost.edges
-  BlogPosts.forEach(post => {
+  const postTemplate = path.resolve(`./src/templates/post.js`)
+  result.data.allWordpressPost.edges.forEach(edge => {
     createPage({
-      path: `/post/${post.node.slug}`,
-      component: BlogPostTemplate,
+      // will be the url for the page
+      path: `${edge.node.categories[0].slug}/${edge.node.slug}`,
+      // specify the component template of your choice
+      component: slash(postTemplate),
+      // In the ^template's GraphQL query, 'id' will be available
+      // as a GraphQL variable to query for this posts's data.
       context: {
-        id: post.node.wordpress_id,
+        id: edge.node.id,
       },
     })
-    const Pages = result.data.allWordpressPage.edges
-    Pages.forEach(page => {
-      createPage({
-        path: `/${page.node.slug}`,
-        component: PageTemplate,
-        context: {
-          id: page.node.wordpress_id,
-        },
-      })
-    })
   })
+
 }
