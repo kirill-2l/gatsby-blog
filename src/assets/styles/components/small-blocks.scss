@@ -7,3 +7,21 @@
     color: darken($color: $white, $amount: 15);
   }
 }
+.tags {
+  display: flex;
+  align-items: center;
+  &__item {
+    display: block;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: $midnightGreen;
+    transition: background-color linear 0.3s;
+    &:hover {
+      background-color: lighten($color: $midnightGreen, $amount: 5);
+    }
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+}

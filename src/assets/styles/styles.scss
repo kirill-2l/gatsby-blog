@@ -29,10 +29,16 @@ ul {
 }
 .app {
   display: flex;
-  max-width: 144rem;
+  max-width: 120rem;
   margin: 0 auto;
   height: 100vh;
   overflow: hidden;
+}
+
+.category-title {
+  font-size: 3.4rem;
+  color: $darkBlue;
+  margin: 0 0 2rem 0;
 }
 
 @import "./components/components";

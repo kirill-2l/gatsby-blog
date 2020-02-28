@@ -1,0 +1,22 @@
+.posts-list {
+  padding: 2rem 0;
+}
+.posts-item {
+  margin-bottom: 2rem;
+  &__title {
+    margin: 0;
+    font-size: 2.4rem;
+    color: $darkBlue;
+  }
+  &__date {
+    font-size: 1.4rem;
+    color: rgba($color: $darkBlue, $alpha: 0.3);
+  }
+  &__excerpt {
+    margin-top: 1rem;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+
+}
