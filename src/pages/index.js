@@ -15,11 +15,23 @@ const IndexPage = ({ toggleDarkmode, isDarkMode }) => {
         edges {
           node {
             id
-            slug
-            excerpt
             title
+            date(formatString: "lll")
             path
+            excerpt
+            featured_media {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 800) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
+                }
+              }
+              source_url
+              alt_text
+            }
             categories {
+              path
               slug
             }
             tags {
@@ -33,7 +45,7 @@ const IndexPage = ({ toggleDarkmode, isDarkMode }) => {
     }
   `)
 
-  const lastPosts = data.allWordpressPost.edges;
+  const lastPosts = data.allWordpressPost.edges
   return (
     <Layout>
       <SEO title="Home" />
@@ -52,3 +64,5 @@ const mapStateToProps = ({ darkMode }) => ({ isDarkMode: darkMode.isDarkMode })
 const mapDispatchToProps = { toggleDarkmode }
 
 export default connect(mapStateToProps, mapDispatchToProps)(IndexPage)
+
+// post id 7f77a39f-da02-5c1c-b0f9-7542962dc1f1
