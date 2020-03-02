@@ -3,24 +3,6 @@ module.exports = {
     title: `Gatsby Default Starter`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
-    navLinks: [
-      {
-        name: "Frontned",
-        link: "/frontend",
-      },
-      {
-        name: "ReactJS",
-        link: "/reactjs",
-      },
-      {
-        name: "HTML5",
-        link: "/html5",
-      },
-      {
-        name: "Life",
-        link: "/life",
-      },
-    ],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -50,7 +32,7 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         // your WordPress source
-        baseUrl: `cd28602.tmweb.ru`,
+        baseUrl: `kpetrov.info`,
         protocol: `http`,
         // is it hosted on wordpress.com, or self-hosted?
         hostingWPCOM: false,
@@ -64,6 +46,14 @@ module.exports = {
           "**/tags",
           "**/taxonomies",
         ],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /assets/, // See below to configure properly
+        },
       },
     },
 

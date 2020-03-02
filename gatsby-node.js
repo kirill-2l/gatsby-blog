@@ -17,7 +17,9 @@ exports.createPages = async ({ graphql, actions }) => {
               slug
             }
             tags {
+              id
               name
+              path
             }
           }
         }
@@ -35,7 +37,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-  const postTemplate = path.resolve(`./src/templates/post.js`)
+  const postTemplate = path.resolve(`./src/templates/post/Post.js`)
   const categoryTemplate = path.resolve(`./src/templates/category.js`)
   posts.data.allWordpressPost.edges.forEach(edge => {
     createPage({

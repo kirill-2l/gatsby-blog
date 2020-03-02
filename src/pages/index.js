@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import PostsList from "../components/PostsList"
@@ -11,27 +11,26 @@ import "../assets/styles/styles.scss"
 const IndexPage = ({ toggleDarkmode, isDarkMode }) => {
   const data = useStaticQuery(graphql`
     query postsList {
-      allWordpressPost(sort: { order: ASC, fields: id }, limit: 3) {
+      allWordpressPost(sort: { order: DESC, fields: date }, limit: 10) {
         edges {
           node {
             id
             title
-            date(formatString: "lll")
+            date(formatString: "LL", locale: "ru")
             path
             excerpt
             featured_media {
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 800) {
+                  fluid(maxWidth: 820, maxHeight: 300) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }
-              source_url
               alt_text
             }
             categories {
-              path
+              name
               slug
             }
             tags {
@@ -47,14 +46,8 @@ const IndexPage = ({ toggleDarkmode, isDarkMode }) => {
 
   const lastPosts = data.allWordpressPost.edges
   return (
-    <Layout>
+    <Layout header="My blog, a xuli">
       <SEO title="Home" />
-      <h1>My blog, a xuli</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <button onClick={() => toggleDarkmode(isDarkMode)}>toggle</button>
-      </div>
       <PostsList posts={lastPosts} />
     </Layout>
   )

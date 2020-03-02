@@ -10,18 +10,20 @@
 .tags {
   display: flex;
   align-items: center;
+  flex-flow: row wrap;
   &__item {
     display: block;
+    padding: 0.3rem 0.7rem;
+    font-size: 1.4rem;
     color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
     background-color: $midnightGreen;
+    border-radius: 0.5rem;
     transition: background-color linear 0.3s;
     &:hover {
       background-color: lighten($color: $midnightGreen, $amount: 5);
     }
     &:not(:last-child) {
-      margin-right: 2rem;
+      margin-right: 1rem;
     }
   }
 }

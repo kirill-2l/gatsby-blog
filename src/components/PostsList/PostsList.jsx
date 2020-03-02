@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import Img from "gatsby-image"
 
 const PostsList = ({ posts }) => {
   const stripHTML = string => string.replace(/(<([^>]+)>)/gi, "")
@@ -7,7 +8,7 @@ const PostsList = ({ posts }) => {
   return (
     <div className="posts-list">
       {posts.map(post => {
-        let {
+        const {
           node: {
             id,
             date,
@@ -19,28 +20,37 @@ const PostsList = ({ posts }) => {
             categories,
           },
         } = post
-
         return (
           <div key={id} className="posts-item">
-            <div className="posts-item__header">
-              {featured_media && (
-                <div className="posts-item__visual">
-                  <img
-                    src={featured_media.source_url}
-                    alt={featured_media.alt_text}
-                    className="posts-item__visual-img"
-                  />
-                </div>
+            {featured_media && (
+              <div className="posts-item__visual">
+                <Img
+                  loading="lazy"
+                  fluid={featured_media.localFile.childImageSharp.fluid}
+                  alt={featured_media.alt}
+                  toFormat={"WEBP"}
+                  grayscale
+                  duotone
+                />
+              </div>
+            )}
+
+            <div className="posts-item__body">
+              {categories && (
+                <Link
+                  to={`/${categories[0].slug}`}
+                  className="posts-item__category"
+                >
+                  {categories[0].name}
+                </Link>
               )}
-              <Link to={categories[0].path} className="posts-item__category">
-                {categories[0].slug}
-              </Link>
+
               <h3 className="posts-item__title">
-                <Link to={path}>{title}</Link>
+                <Link to={path} className="posts-item__title-link">
+                  {title}
+                </Link>
               </h3>
               <div className="posts-item__date">{date}</div>
-            </div>
-            <div className="posts-item__body">
               {excerpt && (
                 <figcaption className="posts-item__excerpt">
                   {stripHTML(excerpt)}
@@ -54,7 +64,7 @@ const PostsList = ({ posts }) => {
                       href={path}
                       className="posts-item__tag tags__item"
                     >
-                      {name}
+                      {`#${name}`}
                     </a>
                   ))}
                 </div>

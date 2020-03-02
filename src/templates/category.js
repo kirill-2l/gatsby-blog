@@ -5,8 +5,7 @@ import PostsList from "../components/PostsList"
 const CategoryTemplate = ({ data, pageContext }) => {
   const posts = data.allWordpressPost.edges
   return (
-    <Layout>
-      <h2 className="category-title">{pageContext.name}</h2>
+    <Layout header={pageContext.name}>
       <PostsList posts={posts} />
     </Layout>
   )

@@ -4,5 +4,34 @@
   position: relative;
   margin-left: 2rem;
   padding: 3rem;
-  background-color: $white;
+  &__header {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin: 0 0 5rem 0;
+  }
+  &__footer {
+    margin-top: 5rem;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background-color: #fff;
+  }
+  &__logo-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 18rem;
+  }
+  &__gatsby {
+    width: 8rem;
+  }
+  &__react {
+    width: 3rem;
+  }
+  &__graphql {
+    width: 2.7rem;
+  }
+  &__logo {
+    height: auto;
+  }
 }
