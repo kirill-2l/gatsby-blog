@@ -12,11 +12,11 @@ import "../../assets/styles/styles.scss"
 import Sidebar from "../Sidebar"
 import Content from "../Content"
 
-const Layout = ({ children, header }) => {
+const Layout = ({ children, content }) => {
   return (
     <div className="app">
       <Sidebar />
-      <Content header={header}>{children}</Content>
+      <Content content={content}>{children}</Content>
     </div>
   )
 }

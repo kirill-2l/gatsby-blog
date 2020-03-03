@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
+import PostTags from "../PostTags"
 
 const PostsList = ({ posts }) => {
   const stripHTML = string => string.replace(/(<([^>]+)>)/gi, "")
@@ -23,16 +24,18 @@ const PostsList = ({ posts }) => {
         return (
           <div key={id} className="posts-item">
             {featured_media && (
-              <div className="posts-item__visual">
-                <Img
-                  loading="lazy"
-                  fluid={featured_media.localFile.childImageSharp.fluid}
-                  alt={featured_media.alt}
-                  toFormat={"WEBP"}
-                  grayscale
-                  duotone
-                />
-              </div>
+              <Link to={`${path}`}>
+                <div className="posts-item__visual">
+                  <Img
+                    loading="lazy"
+                    fluid={featured_media.localFile.childImageSharp.fluid}
+                    alt={featured_media.alt}
+                    toFormat={"WEBP"}
+                    grayscale
+                    duotone
+                  />
+                </div>
+              </Link>
             )}
 
             <div className="posts-item__body">
@@ -56,19 +59,7 @@ const PostsList = ({ posts }) => {
                   {stripHTML(excerpt)}
                 </figcaption>
               )}
-              {tags && (
-                <div className="posts-item__tags tags">
-                  {tags.map(({ path, name, id }) => (
-                    <a
-                      key={id}
-                      href={path}
-                      className="posts-item__tag tags__item"
-                    >
-                      {`#${name}`}
-                    </a>
-                  ))}
-                </div>
-              )}
+              {tags && <PostTags mod="posts-item__tags" tags={tags} />}
             </div>
           </div>
         )

@@ -16,19 +16,18 @@ const Nav = () => {
   const data = navItems.allWordpressCategory.nodes
   return (
     <nav className="nav">
-      <ul className="nav__list">
+      <div className="nav__list">
         {data.map(({ name, slug, id }) => (
-          <div key={id} className="nav__item">
-            <Link
-              to={`/${slug}`}
-              className="nav__link"
-              activeClassName="nav__link--active"
-            >
-              {name}
-            </Link>
-          </div>
+          <Link
+            key={id}
+            to={`/${slug}`}
+            className="nav__link"
+            activeClassName="nav__link--active"
+          >
+            {name}
+          </Link>
         ))}
-      </ul>
+      </div>
     </nav>
   )
 }

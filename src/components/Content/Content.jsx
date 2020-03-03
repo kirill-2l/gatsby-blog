@@ -1,10 +1,11 @@
 import React from "react"
-import ContentFooter from './ContentFooter';
-const Content = ({ children, header }) => {
+import ContentFooter from "./ContentFooter"
+import ContentHeader from "./ContentHeader"
+const Content = ({ children, content }) => {
   return (
-    <main className="main">
-      {header && <h1 className="main__header">{header}</h1>}
-      {children}
+    <main className="content">
+      <ContentHeader content={content} />
+      <div className="content__body">{children}</div>
       <ContentFooter />
     </main>
   )
