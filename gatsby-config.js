@@ -1,8 +1,11 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Блог о frontend разработке`,
+    description: `yet another blog`,
+    author: `Kirill`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -32,7 +35,7 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         // your WordPress source
-        baseUrl: `kpetrov.info`,
+        baseUrl: process.env.WORDPRESS_URL,
         protocol: `http`,
         // is it hosted on wordpress.com, or self-hosted?
         hostingWPCOM: false,
@@ -44,8 +47,11 @@ module.exports = {
           "**/pages",
           "**/media",
           "**/tags",
-          "**/taxonomies",
         ],
+        auth: {
+          htaccess_user: process.env.WORDPRESS_LOGIN,
+          htaccess_pass: process.env.WORDPRESS_PASS,
+        },
       },
     },
     {
@@ -60,6 +66,12 @@ module.exports = {
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
+    {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        trackingId: "UA-159937251-1",
+      },
+    },
   ],
 }

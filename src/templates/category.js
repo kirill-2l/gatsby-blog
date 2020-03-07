@@ -1,11 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
+import SEO from "../components/seo"
 import Layout from "../components/Layout"
 import PostsList from "../components/PostsList"
 const CategoryTemplate = ({ data, pageContext }) => {
   const posts = data.allWordpressPost.edges
   return (
     <Layout content={{ title: pageContext.title }}>
+      <SEO title={pageContext.title}/>
       <PostsList posts={posts} />
     </Layout>
   )

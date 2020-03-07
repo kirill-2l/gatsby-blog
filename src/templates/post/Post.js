@@ -1,13 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
+import SEO from "../../components/seo"
 import Layout from "../../components/Layout"
 import Img from "gatsby-image"
 import PostTags from "../../components/PostTags"
 
 const PostTemplate = ({ data }) => {
-  const { title, content, date, featured_media, tags } = data.wordpressPost
+  const { title, content, date, featured_media, tags, excerpt } = data.wordpressPost
   return (
     <Layout content={{ title, date }}>
+      <SEO title={title} description={excerpt}/>
       {featured_media && (
         <Img
           loading="lazy"
@@ -34,6 +36,7 @@ export const postQuery = graphql`
     wordpressPost(id: { eq: $id }) {
       title
       content
+      excerpt
       date(formatString: "LL", locale: "ru")
       categories {
         name

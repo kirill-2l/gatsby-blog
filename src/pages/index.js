@@ -47,7 +47,7 @@ const IndexPage = ({ toggleDarkmode, isDarkMode }) => {
   const lastPosts = data.allWordpressPost.edges
   return (
     <Layout content={{ title: "My blog, a xuli" }}>
-      <SEO title="Home" />
+      <SEO title="Блог о fronetnd разработке"/>
       <PostsList posts={lastPosts} />
     </Layout>
   )
