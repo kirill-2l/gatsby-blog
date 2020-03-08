@@ -1,7 +1,10 @@
 .sidebar {
   max-width: 30rem;
   width: 30vw;
-  height: 100vw;
-  padding: 2rem;
-  // background-color: $darkBlue;
+  &__wrapper {
+    position: fixed;
+    padding: 2rem;
+    height: 100vh;
+    padding: 2rem;
+  }
 }
