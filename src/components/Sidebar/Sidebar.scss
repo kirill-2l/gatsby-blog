@@ -1,10 +1,20 @@
 .sidebar {
-  max-width: 30rem;
-  width: 30vw;
+  width: 30%;
+  flex-shrink: 0;
+  @media screen and(max-width: $tablet) {
+    width: 100%;
+  }
+
   &__wrapper {
+    width: 30%;
     position: fixed;
-    padding: 2rem;
     height: 100vh;
-    padding: 2rem;
+    padding: 2rem 0;
+    @media screen and(max-width: $tablet) {
+      width: 100%;
+      padding: 2rem 0;
+      height: auto;
+      position: static;
+    }
   }
 }

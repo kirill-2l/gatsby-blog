@@ -1,5 +1,9 @@
 .nav {
   margin-top: 10rem;
+  @media screen and(max-width: $tablet) {
+    margin: 2rem auto 0;
+    width: 50%;
+  }
   &__list {
     display: flex;
     flex-direction: column;
@@ -14,6 +18,9 @@
     color: $black;
     border-radius: .5rem;
     transition: background-color linear 0.3s;
+    @media screen and(max-width: $tablet) {
+      justify-content: center;
+    }
     &:hover {
       background-color: rgba($color: #fff, $alpha: .65);
     }

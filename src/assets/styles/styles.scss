@@ -33,6 +33,10 @@ ul {
   max-width: 110rem;
   margin: 0 auto;
   height: 100vh;
+  padding: 0 1.5rem;
+  @media screen and(max-width: $tablet) {
+    flex-direction: column;
+  }
 }
 
 

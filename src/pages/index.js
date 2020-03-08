@@ -22,7 +22,7 @@ const IndexPage = ({ toggleDarkmode, isDarkMode }) => {
             featured_media {
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 820, maxHeight: 300) {
+                  fluid(maxWidth: 750, maxHeight: 300) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }
@@ -46,7 +46,7 @@ const IndexPage = ({ toggleDarkmode, isDarkMode }) => {
 
   const lastPosts = data.allWordpressPost.edges
   return (
-    <Layout content={{ title: "My blog, a xuli" }}>
+    <Layout content={{ title: "Последние записи" }}>
       <SEO title="Блог о fronetnd разработке"/>
       <PostsList posts={lastPosts} />
     </Layout>

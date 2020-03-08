@@ -4,6 +4,12 @@
   background-color: #fff;
   border-radius: .5rem;
   color: $black;
+  @media screen and (max-width: $tablet) {
+    border-radius: 0.5rem;
+  }
+  @media screen and (max-width: $phone-wide) {
+    padding: 2rem;
+  }
   p {
     margin: 0 0 2rem 0;
   }
@@ -39,14 +45,20 @@
     overflow: hidden;
     margin: 2rem 0;
     img {
-      width: 100%;
+      max-width: 100%;
       height: auto;
       display: block;
+      margin: 0 auto;
     }
   }
   .wp-block-embed-youtube {
     iframe {
       width: 100%;
     }
+  }
+  .wp-block-preformatted {
+    max-width: 83rem;
+    padding: 4rem 2rem;
+    overflow: auto hidden;
   }
 }

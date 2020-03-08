@@ -45,7 +45,7 @@ export const postQuery = graphql`
       featured_media {
         localFile {
           childImageSharp {
-            fluid(maxWidth: 820, maxHeight: 400) {
+            fluid(maxWidth: 750, maxHeight: 400) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
