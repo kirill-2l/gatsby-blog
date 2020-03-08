@@ -1,15 +1,27 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { graphql } from "gatsby"
 import SEO from "../../components/seo"
 import Layout from "../../components/Layout"
 import Img from "gatsby-image"
 import PostTags from "../../components/PostTags"
+import Prism from "prismjs"
 
 const PostTemplate = ({ data }) => {
-  const { title, content, date, featured_media, tags, excerpt } = data.wordpressPost
+  useEffect(() => {
+    Prism.highlightAll()
+  })
+
+  const {
+    title,
+    content,
+    date,
+    featured_media,
+    tags,
+    excerpt,
+  } = data.wordpressPost
   return (
     <Layout content={{ title, date }}>
-      <SEO title={title} description={excerpt}/>
+      <SEO title={title} description={excerpt} />
       {featured_media && (
         <Img
           loading="lazy"
@@ -45,7 +57,7 @@ export const postQuery = graphql`
       featured_media {
         localFile {
           childImageSharp {
-            fluid(maxWidth: 750, maxHeight: 400) {
+            fluid(maxWidth: 730, maxHeight: 400) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }

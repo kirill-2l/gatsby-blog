@@ -1,12 +1,12 @@
 .sidebar {
-  width: 30%;
+  width: 30rem;
   flex-shrink: 0;
   @media screen and(max-width: $tablet) {
     width: 100%;
   }
 
   &__wrapper {
-    width: 30%;
+    width: inherit;
     position: fixed;
     height: 100vh;
     padding: 2rem 0;
@@ -16,5 +16,10 @@
       height: auto;
       position: static;
     }
+  }
+  &__contacts {
+    display: block;
+    margin-top: auto;
+    padding: 0 1rem;
   }
 }

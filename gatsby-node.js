@@ -81,7 +81,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: slash(tagTemplate),
       context: {
         id: node.id,
-        name: `#${node.name}`,
+        name: node.name,
       },
     })
   })

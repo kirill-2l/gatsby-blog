@@ -22,7 +22,7 @@ const IndexPage = ({ toggleDarkmode, isDarkMode }) => {
             featured_media {
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 750, maxHeight: 300) {
+                  fluid(maxWidth: 730, maxHeight: 300) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }

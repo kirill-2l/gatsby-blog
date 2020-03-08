@@ -62,10 +62,7 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-transition-link`,
-
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
+    // `gatsby-plugin-transition-link`,
     `gatsby-plugin-offline`,
     {
       resolve: "gatsby-plugin-google-analytics",
@@ -73,5 +70,17 @@ module.exports = {
         trackingId: "UA-159937251-1",
       },
     },
+    // {
+    //   resolve: `gatsby-transformer-remark`,
+    //   options: {
+    //     plugins: [
+    //       {
+    //         resolve: `gatsby-remark-prismjs`,
+    //         classPrefix: "language-",
+    //       }
+    //     ]
+    //   }
+    // },
+
   ],
 }
