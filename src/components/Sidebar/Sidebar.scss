@@ -6,9 +6,11 @@
   }
 
   &__wrapper {
-    width: inherit;
     position: fixed;
+    display: flex;
+    flex-direction: column;
     height: 100vh;
+    width: inherit;
     padding: 2rem 0;
     @media screen and(max-width: $tablet) {
       width: 100%;

@@ -11,12 +11,9 @@
     background-color: #fff;
     border-radius: 0 0 0.5rem 0.5rem;
     padding: 2rem;
-    margin: 0 0 5rem 0;
+    margin: 0 0 3rem 0;
     @media screen and(max-width: $tablet) {
       border-radius: 0.5rem;
-    }
-    @media screen and(max-width: $phone-wide) {
-      margin: 0 0 3rem 0;
     }
   }
   &__body {
@@ -24,14 +21,11 @@
     max-width: 73rem;
   }
   &__footer {
-    margin-top: 5rem;
+    margin-top: 3rem;
     padding: 2rem;
     border-radius: 0.5rem 0.5rem 0 0;
     background-color: #fff;
     flex: 0 0 auto;
-    @media screen and(max-width: $phone-wide) {
-      margin-top: 3rem;
-    }
   }
   &__title {
     font-size: 3.2rem;

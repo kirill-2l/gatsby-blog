@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title=null }) {
+function SEO({ description, lang, meta, title = null }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -25,7 +25,9 @@ function SEO({ description, lang, meta, title=null }) {
     `
   )
 
-  const metaDescription = description ? description : site.siteMetadata.description
+  const metaDescription = description
+    ? description
+    : site.siteMetadata.description
   const metaTitle = title ? title : site.siteMetadata.title
   return (
     <Helmet
@@ -68,7 +70,9 @@ function SEO({ description, lang, meta, title=null }) {
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <script src="https://yastatic.net/share2/share.js" />
+    </Helmet>
   )
 }
 
